@@ -8,7 +8,7 @@ CMD ["/sbin/my_init"]
 
 VOLUME /srv/graphite
 
-RUN sudo add-apt-repository -y ppa:pypy/ppa
+RUN add-apt-repository -y ppa:pypy/ppa
 RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y language-pack-en python-virtualenv libcairo2-dev pypy
