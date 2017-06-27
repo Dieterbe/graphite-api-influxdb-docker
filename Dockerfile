@@ -8,13 +8,10 @@ CMD ["/sbin/my_init"]
 
 VOLUME /srv/graphite
 
-RUN echo 'deb http://ppa.launchpad.net/pypy/ppa/ubuntu trusty main' >> /etc/apt/sources.list
-RUN echo 'deb-src http://ppa.launchpad.net/pypy/ppa/ubuntu trusty main' >> /etc/apt/sources.list
+RUN sudo add-apt-repository -y ppa:pypy/ppa
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y language-pack-en python-virtualenv libcairo2-dev
-# unauthenticated..
-RUN apt-get install -y --force-yes pypy
+RUN apt-get install -y language-pack-en python-virtualenv libcairo2-dev pypy
 
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
